@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show/Hide Elements</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Select an option:</h2>
+  <select id="optionSelect" onchange="toggleElements()">
+    <option value="option0">Chose</option>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+
+  <div  class="hidden" id="element1">Element 1</div>
+  <div class="hidden" id="element2">Element 2</div>
+  <div class="hidden" id="element3">Element 3</div>
+
+  <script>
+    function toggleElements() {
+      var optionSelect = document.getElementById("optionSelect");
+      var selectedOption = optionSelect.value;
+      var element1 = document.getElementById("element0");
+      var element1 = document.getElementById("element1");
+      var element2 = document.getElementById("element2");
+      var element3 = document.getElementById("element3");
+
+      if (selectedOption === "option1") {
+        element1.style.display = "block";
+        element2.style.display = "none";
+        element3.style.display = "none";
+      } else if (selectedOption === "option2") {
+        element1.style.display = "none";
+        element2.style.display = "block";
+        element3.style.display = "none";
+      } else if (selectedOption === "option3") {
+        element1.style.display = "none";
+        element2.style.display = "none";
+        element3.style.display = "block";
+      }else if (selectedOption === "option0") {
+        element1.style.display = "none";
+        element2.style.display = "none";
+        element3.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

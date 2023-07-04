@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add and Delete Elements</title>
+  <style>
+    #list {
+      list-style-type: none;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Add and Delete Elements</h2>
+
+  <button onclick="addElement()">Add Element</button>
+  <button onclick="deleteElements()">Delete Checked Elements</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    function addElement() {
+      var list = document.getElementById("list");
+
+      // Create a new list item
+      var listItem = document.createElement("li");
+
+      // Generate random title and number
+      var title = "Title " + Math.floor(Math.random() * 100);
+      var number = Math.floor(Math.random() * 100);
+
+      // Create a checkbox element
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+
+      // Create text nodes for the title and number
+      var titleText = document.createTextNode(title);
+      var numberText = document.createTextNode("Number: " + number);
+
+      // Append the checkbox, title, and number to the list item
+      listItem.appendChild(checkbox);
+      listItem.appendChild(titleText);
+      listItem.appendChild(document.createElement("br"));
+      listItem.appendChild(numberText);
+
+      // Append the list item to the list
+      list.appendChild(listItem);
+    }
+
+    function deleteElements() {
+      var list = document.getElementById("list");
+      var checkboxes = list.getElementsByTagName("input");
+
+      // Loop through checkboxes and delete checked elements
+      for (var i = checkboxes.length - 1; i >= 0; i--) {
+        if (checkboxes[i].checked) {
+          list.removeChild(checkboxes[i].parentNode);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
